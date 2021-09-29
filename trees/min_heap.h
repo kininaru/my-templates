@@ -1,7 +1,5 @@
 /*
- * 洛谷 P1090，在题解中看到了“小根堆”这个概念。学习之后自己实现了一个。
- *
- * 感谢 https://www.luogu.com.cn/user/69166 大佬的题解。看起来十分轻松愉快，谢谢！
+ * thanks: https://www.luogu.com.cn/user/69166
  */
 
 #include "cstring"
