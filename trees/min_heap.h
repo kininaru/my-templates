@@ -23,8 +23,8 @@ public:
 };
 
 template<typename T>
-min_heap<T>::min_heap(int _expected_len): expected_len(_expected_len + 1), max_len(_expected_len + 1), len(0) {
-    core = new T[max_len];
+min_heap<T>::min_heap(int _expected_len): expected_len(_expected_len), max_len(_expected_len), len(0) {
+    core = new T[max_len + 1];
 }
 
 template<typename T>
