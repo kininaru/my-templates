@@ -43,7 +43,7 @@ bool min_heap<T>::push(T data) {
 // makes sure that the object can be accessed from 1 to _len.
 template<typename T>
 bool min_heap<T>::resize(int _len) {
-    T new_core = new T[_len + 1];
+    T *new_core = new T[_len + 1];
     if (new_core == nullptr) return false;
     int _min = std::min(_len, len);
     for (int i = 1; i <= _min; i++) new_core[i] = core[i];
