@@ -29,7 +29,7 @@ min_heap<T>::min_heap(int _expected_len): expected_len(_expected_len + 1), max_l
 
 template<typename T>
 min_heap<T>::~min_heap() {
-    delete []core;
+    delete[] core;
 }
 
 template<typename T>
@@ -47,7 +47,7 @@ bool min_heap<T>::resize(int _len) {
     if (new_core == nullptr) return false;
     int _min = std::min(_len, len);
     for (int i = 1; i <= _min; i++) new_core[i] = core[i];
-    delete core;
+    delete[] core;
     core = new_core;
     max_len = _len;
 }

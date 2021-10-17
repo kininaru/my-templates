@@ -10,7 +10,6 @@ void print_heap(min_heap<int> h) {
 
 int main() {
     min_heap<int> h(2);
-    h.push(1);
-    print_heap(h);
+    h.push(2);
     return 0;
 }
