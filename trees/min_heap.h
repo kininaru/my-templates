@@ -50,6 +50,7 @@ bool min_heap<T>::resize(int _len) {
     delete[] core;
     core = new_core;
     max_len = _len;
+    return true;
 }
 
 template<typename T>

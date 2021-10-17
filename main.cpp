@@ -16,5 +16,6 @@ int main() {
     h.push(4);
     h.push(5);
     h.push(6);
+    cout << h.size();
     return 0;
 }
