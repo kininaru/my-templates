@@ -10,7 +10,8 @@ class min_heap {
     T *core;
 
     void exchange_value(int a, int b);
-    void sort();
+    void sort_float();
+    void sort_sink();
     bool resize(int _len);
 public:
     explicit min_heap(int _expected_len);
@@ -36,7 +37,7 @@ template<typename T>
 bool min_heap<T>::push(T data) {
     if (len + 1 > max_len && !this->resize(max_len + 1)) return false;
     core[++len] = data;
-    this->sort();
+    sort_float();
 }
 
 // returns false when resizing failed
@@ -66,22 +67,12 @@ void min_heap<T>::pop() {
     if (len == 0) return;
     exchange_value(1, len);
     if (--len >= this->expected_len) resize(len);
-    sort();
+    sort_sink();
 }
 
 template<typename T>
 T min_heap<T>::top() {
     return core[1];
-}
-
-template<typename T>
-void min_heap<T>::sort() {
-    int ptr = len, parent = len / 2;
-    while (parent > 0) {
-        if (core[ptr] < core[parent]) exchange_value(ptr, parent);
-        ptr = parent;
-        parent /= 2;
-    }
 }
 
 template<typename T>
@@ -92,4 +83,27 @@ int min_heap<T>::size() {
 template<typename T>
 T min_heap<T>::operator[](int index) {
     return core[index];
+}
+
+template<typename T>
+void min_heap<T>::sort_float() {
+    int ptr = len, parent = len / 2;
+    while (parent > 0 && core[ptr] < core[parent]) {
+        exchange_value(ptr, parent);
+        ptr = parent;
+        parent /= 2;
+    }
+}
+
+template<typename T>
+void min_heap<T>::sort_sink() {
+    if (len < 2) return;
+    int father = 1, son = 2;
+    while (son <= len) {
+        if (son < len && core[son] > core[son + 1]) son++;
+        if (core[father] <= core[son]) break;
+        exchange_value(father, son);
+        father = son;
+        son = father * 2;
+    }
 }
