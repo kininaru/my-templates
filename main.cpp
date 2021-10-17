@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    cout << "Hello world" << endl;
+    auto h = min_heap<int>(1000);
 
     return 0;
 }
