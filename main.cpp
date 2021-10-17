@@ -1,5 +1,5 @@
 #include "iostream"
-#include "./trees/min_heap.h"
+#include "trees/stack.h"
 
 using namespace std;
 
