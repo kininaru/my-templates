@@ -65,8 +65,8 @@ template<typename T>
 void min_heap<T>::pop() {
     if (len == 0) return;
     exchange_value(1, len);
-    sort();
     if (--len >= this->expected_len) resize(len);
+    sort();
 }
 
 template<typename T>
