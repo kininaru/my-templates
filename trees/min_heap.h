@@ -29,7 +29,7 @@ min_heap<T>::min_heap(int _expected_len): expected_len(_expected_len + 1), max_l
 
 template<typename T>
 min_heap<T>::~min_heap() {
-    delete core;
+    delete []core;
 }
 
 template<typename T>
